@@ -1,0 +1,61 @@
+:root {
+  --color-bg-table: #18347a;
+  --color-bg-table-col-odd: #a3c2e5;
+  --color-bg-table-col-even: #dce9f6;
+
+  --font-size-s: 0.8em;
+  --font-size-m: 1em;
+  --font-size-l: 1.2em;
+}
+
+.schedule {
+  border-collapse: collapse;
+  font-family: sans-serif;
+  width: 100%;
+}
+
+.schedule thead {
+  background: var(--color-bg-table);
+  color: white;
+  font-size: var(--font-size-l);
+  text-align: left;
+}
+
+.schedule__title {
+  border-bottom: 1px solid #fff;
+  font-weight: 500;
+  text-align: left;
+}
+
+.schedule__time-slots th:not(:last-child) {
+  border-right: 1px solid #fff;
+}
+
+.schedule thead th {
+  background: #18347a;
+  color: white;
+  font-weight: 500;
+  padding: 0.5em;
+}
+
+.schedule tbody {
+  text-align: center;
+  vertical-align: baseline;
+}
+
+.schedule tbody th:nth-child(odd) {
+  background: var(--color-bg-table-col-odd);
+}
+
+.schedule tbody th:nth-child(even) {
+  background: var(--color-bg-table-col-even);
+}
+
+.bus {
+  color: #000;
+  height: 20px;
+}
+
+.unit-symbol-lower {
+  font-size: var(--font-size-s);
+}

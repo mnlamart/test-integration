@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <table class="schedule">
+        <thead>
+          <tr class="schedule__title">
+            <th colspan="{{ schedule|length }}">{{ schedule_title }}</th>
+          </tr>
+          <tr class="schedule__time-slots">
+              {% for timeSlot, bus in schedule %}
+              <th>{{ timeSlot }}<span class="unit-symbol-lower">h</span></th>
+              {% endfor %}
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                {% for timeSlot, buses in schedule %}
+                    <th>
+                    {% for bus in buses %}
+                        <div class="bus">{{ bus }}</div>
+                    {% endfor %}
+                    </th>
+                {% endfor %}
+            </tr>
+        </tbody>
+      </table>
+    </main>
+    <script src="http://localhost:35729/livereload.js"></script>
+  </body>
+</html>
