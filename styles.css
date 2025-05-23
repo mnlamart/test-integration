@@ -34,13 +34,12 @@
   background: var(--color-bg-table);
   color: white;
   font-size: var(--font-size-l);
-  text-align: left;
+  text-align: center;
 }
 .schedule thead th {
   background: #18347a;
   color: white;
   font-weight: 500;
-  padding: 0.5em;
 }
 .schedule thead th:not(:last-child) {
   border-right: 1px solid #fff;
@@ -49,6 +48,9 @@
   border-bottom: 1px solid #fff;
   font-weight: 500;
   text-align: left;
+}
+.schedule__title th {
+  padding: 10px 8px;
 }
 .schedule__time-slots th:not(:last-child) {
   border-right: 1px solid #fff;
