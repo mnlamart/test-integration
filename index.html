@@ -1,9 +1,12 @@
+{% import 'macros.html.twig' as macro %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -15,9 +18,8 @@
           </tr>
           <tr class="schedule__time-slots">
               {% for timeSlot, bus in schedule %}
-              <th>{{ timeSlot }}<span class="unit-symbol-lower">h</span></th>
+                <th>{{ timeSlot }}<span class="unit-symbol-lower">h</span></th>
               {% endfor %}
-
             </tr>
         </thead>
 
@@ -33,6 +35,14 @@
             </tr>
         </tbody>
       </table>
+
+      <hr /><hr />
+
+      <div class="strip-map">
+        {% for station in line_data.stations %}
+            {{ macro.renderStation(station, line_data, 0) }}
+        {% endfor %}
+      </div>
     </main>
     <script src="http://localhost:35729/livereload.js"></script>
   </body>

@@ -1,0 +1,32 @@
+{% macro renderStation(station, line_data, level) %}
+    {% set stationClass = [
+        "station",
+        level > 0 ? "station--child",
+        isTerminus(station) ? 'station--terminus' : 'station--regular',
+        isCurrentStation(station, line_data.current_station) ? 'station--current' : '',
+    ]|join(" ") %}
+
+    <div class="{{ stationClass }}">
+        <div class="station__name-wrapper">
+            {% if isTerminus(station) %}
+                <span class="station__line-name" style="background-color: {{ line_data.color }}">{{ line_data.name }}</span>
+            {% endif %}
+
+            <div class="station__name">
+                {{ station.name }}
+            </div>
+        </div>
+
+        {% if station.children is defined and station.children|length > 0 %}
+            {% set childrenClass = [
+                "station__children",
+                hasChildWithTerminus(station) ? 'station__children--has-terminus' : '',
+            ]|join(" ") %}
+            <div class="{{ childrenClass }}">
+                 {% for child in station.children %}
+                    {{ _self.renderStation(child, line_data, level + 1) }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
